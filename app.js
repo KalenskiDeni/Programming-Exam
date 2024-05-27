@@ -8,11 +8,12 @@ async function initApp() {
   const posts = await getPosts();
   posts.sort((a,b) => new Date(a.date).getTime() - new Date(b.date).getTime());
   console.log(posts);
+  displayPostsGrid(posts);
 }
 
 async function getPosts() {
   const response = await fetch (
-    "http://programming.exam.denikalenski.dk/wp-json/wp/v2/posts?acf_format=standard"
+    "http://programming.exam.denikalenski.dk/wp-json/wp/v2/posts?acf_format=standard&orderby=date&order=asc"
   );
   const data = await response.json();
   return data;
