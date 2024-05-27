@@ -6,12 +6,13 @@ window.addEventListener("load", initApp); // When the page is loaded, run initAp
 async function initApp() {
   console.log("initApp: app.js is running 🎉"); // Log to the console that the app is running
   const posts = await getPosts();
+  posts.sort((a,b) => new Date(a.date).getTime() - new Date(b.date).getTime());
   console.log(posts);
 }
 
 async function getPosts() {
   const response = await fetch (
-    "https://headless.cederdorff.dk/wp-json/wp/v2/posts"
+    "http://programming.exam.denikalenski.dk/wp-json/wp/v2/posts?acf_format=standard"
   );
   const data = await response.json();
   return data;
