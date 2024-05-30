@@ -1,61 +1,205 @@
-html,
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #acc6c9;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
 
 html,
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(172, 198, 201);
-}
+  font-family: 'Poppins', sans-serif;
+  background-color: #cbd5d8;
+  background-image: url(''); /* Replace 'path/to/your/image.jpg' with the path to your image */
+  background-size: 100%; /* Ensure the background image covers the entire header */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat;
 
-a {
-  color: rgb(38, 76, 89);
-}
-
-header {
-  background-color: rgb(38, 76, 89);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
 }
 
-header h1 {
-  color: white;
-  padding: 1em;
-  margin: 0;
+.intro {
+  padding: 4em 2em;
+  text-align: center;
+  font-size: 28px;;
+  color: #083d41;
+  height: 500px;
+  margin-top: 200px;;
 }
 
+
+
+a {
+  color: #83a9a2;
+}
+
+header {
+  background-color: #083d41;;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+header img {
+  width: 50px; /* Adjust the width of the logo */
+  height: auto; /* Maintain aspect ratio */
+  margin-left: 80px;
+}
+
+
+
+.mouse{
+  margin: 140px auto;
+  width: 100px;
+  margin-top: -180px;
+}
+.mouse-icon{
+   width: 25px;
+   height: 45px;
+   border: 2px solid #083d41;
+   border-radius: 15px;
+   cursor: pointer;
+   position: relative;
+   text-align: center;
+}
+.mouse-wheel{
+  height: 6px;
+  margin: 2px auto 0;
+  display: block;
+  width: 3px;
+  background-color: #083d41;
+  border-radius: 50%;
+  -webkit-animation: 1.6s ease infinite wheel-up-down;
+ -moz-animation: 1.6s ease infinite wheel-up-down;
+  animation: 1.6s ease infinite wheel-up-down;
+}
+@-webkit-keyframes wheel-up-down {
+	0% {
+	    margin-top: 2px;
+	    opacity: 0;
+	}
+	30% {
+	    opacity: 1;
+	}
+	100% {
+	    margin-top: 20px;
+	    opacity: 0;
+	}
+}@-moz-keyframes wheel-up-down {
+	0% {
+	    margin-top: 2px;
+	    opacity: 0;
+	}
+	30% {
+	    opacity: 1;
+	}
+	100% {
+	    margin-top: 20px;
+	    opacity: 0;
+	}
+}@keyframes wheel-up-down {
+	0% {
+	    margin-top: 2px;
+	    opacity: 0;
+	}
+	30% {
+	    opacity: 1;
+	}
+	100% {
+	    margin-top: 20px;
+	    opacity: 0;
+	}
+}
+
+
+
+/* Styles for the animated text */
+.animated-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  margin-top: -190px;
+  font-size: 38px;
+}
+
+.animated-text h1 {
+  font-size: 5em;
+  color: #083d41;
+  white-space: nowrap; /* Ensure text stays in one line */
+  animation: moveText 10s infinite linear;
+  font-family: 'Source Code Pro', monospace;
+ 
+}
+
+
+@keyframes moveText {
+  0% {
+    transform: translate(-50%, -50%) translateX(-30%);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateX(140%);
+  }
+
+}
+
+
+
+
+/* Base styles for grid layout */
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1em;
-  padding: 2em;
+  grid-template-columns: 1fr; /* Single column layout */
+  gap: 3em;
+  padding: 3em;
 }
 
+/* Base styles for grid items */
 .grid-item {
-  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
-  padding: 1.5em;
-  background-color: #f1f1f1;
-  transition: 0.5s;
-  animation: fadeIn 0.5s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.08); /* Add a subtle shadow */
+  background-color: rgba(255, 255, 255, 0.627); /* Set a transparent background color */
   border-radius: 10px;
+  display: flex;
+  animation: fadeIn 0.5s;
+  transition: 0.5s;
 }
 
+/* Hover effect for grid items */
 .grid-item:hover {
   transform: scale(1.03);
 }
 
+/* Styles for grid item images */
 .grid-item img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
+  width: 40%; /* Adjust width of the image */
+  height: auto; /* Maintain aspect ratio */
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
+/* Styles for grid item text */
+.grid-item-text {
+  flex: 1;
+  margin-top: 80px; /* Adjust the margin-top value to move the text down */
+  max-width: 700px;
+  color: #083d41;
+}
+
+/* Align text to the left by default */
+.grid-item-text {
+  text-align: left;
+}
+
+/* Align text to the right for the second and fourth items */
+.grid-item:nth-child(2) .grid-item-text,
+.grid-item:nth-child(4) .grid-item-text {
+  text-align: right;
+}
+
+/* Reverse the order of image and text for the second and fourth items */
+.grid-item:nth-child(2),
+.grid-item:nth-child(4) {
+  flex-direction: row-reverse;
+}
+
+/* Animation for fading in */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -63,4 +207,75 @@ header h1 {
   to {
     opacity: 1;
   }
+}
+
+
+.grid-item {
+  position: relative; /* Ensure position is relative */
+}
+
+/* Label for odd grid items */
+.grid-item:nth-child(odd)::before {
+  content: "CASE STUDY";
+  position: absolute;
+  top: 20px; /* Adjust the position */
+  right: -20px; /* Adjust the position */
+  background-color: #083d41; /* Adjust the background color */
+  color: #FFF; /* Adjust the text color */
+  padding: 5px 10px; /* Adjust the padding */
+  border-radius: 5px;
+}
+
+/* Label for even grid items */
+.grid-item:nth-child(even)::before {
+  content: "CASE STUDY";
+  position: absolute;
+  top: 20px; /* Adjust the position */
+  left: -20px; /* Adjust the position */
+  background-color: #083d41; /* Adjust the background color */
+  color: #FFF; /* Adjust the text color */
+  padding: 5px 10px; /* Adjust the padding */
+  border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Scroll to Top Button Styles */
+#scrollToTopBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed position */
+  bottom: 20px; /* 20px from the bottom */
+  right: 30px; /* 30px from the right */
+  z-index: 99; /* Sit on top */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #0a585e; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 50%; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+  display: flex; /* Use flexbox for centering */
+  align-items: center; /* Center align items vertically */
+  justify-content: center; /* Center align items horizontally */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  transition: background-color 0.6s ease; /* Smooth transition */
+}
+
+#scrollToTopBtn:hover {
+  background-color: #105459b4; /* Dark-grey background on hover */
+}
+
+/* SVG icon styles */
+.scroll-to-top-icon {
+  width: 24px; /* Set icon width */
+  height: 24px; /* Set icon height */
+  fill: white; /* Set icon color */
 }
